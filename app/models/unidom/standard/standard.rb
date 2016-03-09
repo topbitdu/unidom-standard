@@ -16,4 +16,11 @@ class Unidom::Standard::Standard < ActiveRecord::Base
 
   scope :number_is, ->(number) { where number: number }
 
+  has_many :target_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :source_id # as:     :source
+  has_many :target_standards,    through:    :target_associatings,                    source: :target
+  has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id # as:     :target
+  has_many :source_standards,    through:    :source_associatings,                    source: :source
+
+  include Unidom::Common::Concerns::ModelExtension
+
 end

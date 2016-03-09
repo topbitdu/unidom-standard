@@ -1,7 +1,7 @@
 # Unidom Standard Roadmap 标准领域模型引擎路线图
 
 ## v0.1
-1. Standard model
+1. Standard model & migration
 
 ## v0.2
-1. Standard Association model
+1. Standard Association model & migration

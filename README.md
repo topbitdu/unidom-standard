@@ -18,6 +18,9 @@ rake db:migrate
 
 ## Call the Model
 ```ruby
-Unidom::Standard::Standard.valid_at.alive.first
-Unidom::Standard::StandardAssociation.valid_at.alive.first
+gbk = Unidom::Standard::Standard.number_is('GBK').first
+gbk.source_standards.merge(Unidom::Standard::StandardAssociating.association_coded_as('REVS').valid_at.alive).valid_at.alive
+# The standards revises GBK.
+gbk.target_standards.merge(Unidom::Standard::StandardAssociating.association_coded_as('REVS').valid_at.alive).valid_at.alive
+# The standards revised by GBK, such as GB2312.
 ```

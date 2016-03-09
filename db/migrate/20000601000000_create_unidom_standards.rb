@@ -9,10 +9,11 @@ class CreateUnidomStandards < ActiveRecord::Migration
       t.string :ics_code, null: true,  default: nil, limit: 9
 
       t.text :scope_definition
+      t.text :corrigenda
       t.text :instruction
       t.text :description
 
-      t.date :issued_on,    null: false, default: '3000-01-01'
+      t.date :published_on, null: false, default: '3000-01-01'
       t.date :applied_on,   null: false, default: '3000-01-01'
       t.date :obsoleted_on, null: false, default: '3000-01-01'
 
