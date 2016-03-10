@@ -4,4 +4,4 @@
 1. Standard model & migration
 
 ## v0.2
-1. Standard Association model & migration
+1. Standard Associating model & migration
