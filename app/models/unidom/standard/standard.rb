@@ -11,6 +11,8 @@ class Unidom::Standard::Standard < ActiveRecord::Base
 
   self.table_name = 'unidom_standards'
 
+  include Unidom::Common::Concerns::ModelExtension
+
   validates :name,   presence: true, length: { in: 2..self.columns_hash['name'].limit   }
   validates :number, presence: true, length: { in: 2..self.columns_hash['number'].limit }, uniqueness: true
 
@@ -20,7 +22,5 @@ class Unidom::Standard::Standard < ActiveRecord::Base
   has_many :target_standards,    through:    :target_associatings,                    source: :target
   has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id # as:     :target
   has_many :source_standards,    through:    :source_associatings,                    source: :source
-
-  include Unidom::Common::Concerns::ModelExtension
 
 end

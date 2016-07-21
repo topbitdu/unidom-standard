@@ -4,12 +4,16 @@ class Unidom::Standard::StandardAssociating < ActiveRecord::Base
 
   self.table_name = 'unidom_standard_associatings'
 
+  include Unidom::Common::Concerns::ModelExtension
+
   scope :source_is, ->(source) { where source_id: (source.respond_to?(:id) ? source.id : source) }
   scope :target_is, ->(target) { where target_id: (target.respond_to?(:id) ? target.id : target) }
 
   belongs_to :source, class_name: 'Unidom::Standard::Standard', foreign_key: :source_id
   belongs_to :target, class_name: 'Unidom::Standard::Standard', foreign_key: :target_id
 
-  include Unidom::Common::Concerns::ModelExtension
+  def self.associate!(source, target, association_code = 'REVS', opened_at: Time.now)
+    create! source_id: to_id(source), target_id: to_id(target), association_code: association_code, opened_at: opened_at
+  end
 
 end

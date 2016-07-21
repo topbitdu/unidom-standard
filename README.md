@@ -28,4 +28,7 @@ gbk.source_standards.merge(Unidom::Standard::StandardAssociating.association_cod
 # The standards revises GBK.
 gbk.target_standards.merge(Unidom::Standard::StandardAssociating.association_coded_as('REVS').valid_at.alive).valid_at.alive
 # The standards revised by GBK, such as GB2312.
+
+# GBK revise GB2312
+Unidom::Standard::StandardAssociating.associate! gbk, gb2312, 'REVS'
 ```
