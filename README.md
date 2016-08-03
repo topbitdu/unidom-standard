@@ -30,5 +30,5 @@ gbk.target_standards.merge(Unidom::Standard::StandardAssociating.association_cod
 # The standards revised by GBK, such as GB2312.
 
 # GBK revise GB2312
-Unidom::Standard::StandardAssociating.associate! gbk, gb2312, 'REVS'
+Unidom::Standard::StandardAssociating.associate! gbk, with: gb2312, due_to: 'REVS'
 ```

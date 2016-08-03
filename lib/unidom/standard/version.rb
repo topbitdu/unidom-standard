@@ -1,5 +1,5 @@
 module Unidom
   module Standard
-    VERSION = '0.3'.freeze
+    VERSION = '1.0'.freeze
   end
 end

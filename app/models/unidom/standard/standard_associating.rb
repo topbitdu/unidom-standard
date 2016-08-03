@@ -12,8 +12,8 @@ class Unidom::Standard::StandardAssociating < ActiveRecord::Base
   belongs_to :source, class_name: 'Unidom::Standard::Standard', foreign_key: :source_id
   belongs_to :target, class_name: 'Unidom::Standard::Standard', foreign_key: :target_id
 
-  def self.associate!(source, target, association_code = 'REVS', opened_at: Time.now)
-    create! source_id: to_id(source), target_id: to_id(target), association_code: association_code, opened_at: opened_at
+  def self.associate!(source, with: target, due_to: 'REVS', at: Time.now)
+    create! source_id: to_id(source), target_id: to_id(with), association_code: due_to, opened_at: at
   end
 
 end
