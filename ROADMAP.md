@@ -13,6 +13,9 @@
 ## v1.0
 1. Improve the Standard Associating model to support the Keyword Arguments
 
+## v1.0.1
+1. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.0
+
 ## v1.1
 1. As Source Standard concern
 2. As Target Standard concern
