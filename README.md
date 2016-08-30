@@ -32,3 +32,21 @@ gbk.target_standards.merge(Unidom::Standard::StandardAssociating.association_cod
 # GBK revise GB2312
 Unidom::Standard::StandardAssociating.associate! gbk, with: gb2312, due_to: 'REVS'
 ```
+
+
+
+## Inlcude the Concerns
+```ruby
+include Unidom::Standard::Concerns::AsSourceStandard
+include Unidom::Standard::Concerns::AsTargetStandard
+```
+
+### As Source Standard concern
+The As Source Standard concern do the following tasks for the includer automatically:  
+1. Define the has_many :target_associatings macro as: ``has_many :target_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :source_id``
+2. Define the has_many :target_standards macro as: ``has_many :target_standards, through: :target_associatings, source: :target``
+
+### As Target Standard concern
+The As Target Standard concern do the following tasks for the includer automatically:  
+1. Define the has_many :source_associatings macro as: ``has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id``
+2. Define the has_many :source_standards macro as: ``has_many :source_standards, through: :source_associatings, source: :source``
