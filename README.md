@@ -45,8 +45,10 @@ include Unidom::Standard::Concerns::AsTargetStandard
 The As Source Standard concern do the following tasks for the includer automatically:  
 1. Define the has_many :target_associatings macro as: ``has_many :target_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :source_id``
 2. Define the has_many :target_standards macro as: ``has_many :target_standards, through: :target_associatings, source: :target``
+3. Define the #associate! method as: ``associate!(target, due_to: 'REVS', at: Time.now)``
 
 ### As Target Standard concern
 The As Target Standard concern do the following tasks for the includer automatically:  
 1. Define the has_many :source_associatings macro as: ``has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id``
 2. Define the has_many :source_standards macro as: ``has_many :source_standards, through: :source_associatings, source: :source``
+3. Define the #is_associated! method as: ``is_associated!(source, due_to: 'REVS', at: Time.now)``
