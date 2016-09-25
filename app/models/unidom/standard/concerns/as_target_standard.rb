@@ -11,9 +11,9 @@ module Unidom::Standard::Concerns::AsTargetStandard
       source_associatings.source_is(source).association_coded_as(due_to).valid_at(now: at).alive.first_or_create! opened_at: at
     end
 
-    #def is_associated?(source, due_to: 'REVS', at: Time.now)
-    #  source_associatings.source_is(source).association_coded_as(due_to).valid_at(now: at).alive.exists?
-    #end
+    def is_associated?(source, due_to: 'REVS', at: Time.now)
+      source_associatings.source_is(source).association_coded_as(due_to).valid_at(now: at).alive.exists?
+    end
 
   end
 
