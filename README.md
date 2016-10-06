@@ -7,22 +7,34 @@
 Unidom (UNIfied Domain Object Model) is a series of domain model engines. The Standard domain model engine includes the Standard and Standard Association models.
 Unidom (统一领域对象模型)是一系列的领域模型引擎。标准领域模型引擎包括标准和标准关联的模型。
 
+
+
 ## Recent Update
+
 Check out the [Road Map](ROADMAP.md) to find out what's the next.
 Check out the [Change Log](CHANGELOG.md) to find out what's new.
 
+
+
 ## Usage in Gemfile
+
 ```ruby
 gem 'unidom-standard'
 ```
 
+
+
 ## Run the Database Migration
+
 ```shell
 rake db:migrate
 ```
 The migration versions start with 200006.
 
+
+
 ## Call the Model
+
 ```ruby
 gbk = Unidom::Standard::Standard.number_is('GBK').first
 gbk.source_standards.merge(Unidom::Standard::StandardAssociating.association_coded_as('REVS').valid_at.alive).valid_at.alive
@@ -37,12 +49,14 @@ Unidom::Standard::StandardAssociating.associate! gbk, with: gb2312, due_to: 'REV
 
 
 ## Inlcude the Concerns
+
 ```ruby
 include Unidom::Standard::Concerns::AsSourceStandard
 include Unidom::Standard::Concerns::AsTargetStandard
 ```
 
 ### As Source Standard concern
+
 The As Source Standard concern do the following tasks for the includer automatically:  
 1. Define the has_many :target_associatings macro as: ``has_many :target_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :source_id``
 2. Define the has_many :target_standards macro as: ``has_many :target_standards, through: :target_associatings, source: :target``
@@ -50,6 +64,7 @@ The As Source Standard concern do the following tasks for the includer automatic
 4. Define the #associate? method as: ``associate?(target, due_to: 'REVS', at: Time.now)``
 
 ### As Target Standard concern
+
 The As Target Standard concern do the following tasks for the includer automatically:  
 1. Define the has_many :source_associatings macro as: ``has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id``
 2. Define the has_many :source_standards macro as: ``has_many :source_standards, through: :source_associatings, source: :source``
