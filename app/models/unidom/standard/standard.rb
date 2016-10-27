@@ -7,7 +7,7 @@
 # Revised by: ISO/NP 9004
 # Revises: ISO 9004:2000
 
-class Unidom::Standard::Standard < ActiveRecord::Base
+class Unidom::Standard::Standard < Unidom::Standard::ApplicationRecord
 
   self.table_name = 'unidom_standards'
 
