@@ -1,6 +1,6 @@
 # Standard Association 是标准之间的关联关系。
 # association_code: REVS 修订，RFRC 引用。
-class Unidom::Standard::StandardAssociating < ActiveRecord::Base
+class Unidom::Standard::StandardAssociating < Unidom::Standard::ApplicationRecord
 
   self.table_name = 'unidom_standard_associatings'
 
