@@ -4,7 +4,7 @@
 1. Standard model & migration (20000601000000)
 
 ## v0.2
-1. Standard Associating model & migration
+1. Standard Associating model & migration (20000602000000)
 
 ## v0.3
 1. Improve the Standard Associating model to add the ::associate! method
