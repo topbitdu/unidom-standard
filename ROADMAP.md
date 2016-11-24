@@ -7,7 +7,7 @@
 1. Standard Associating model & migration (20000602000000)
 
 ## v0.3
-1. Improve the Standard Associating model to add the ::associate! method
+1. Improve the Standard Associating model to add the .``associate!`` method
 2. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v0.9
 
 ## v1.0
