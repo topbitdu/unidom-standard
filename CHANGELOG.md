@@ -21,7 +21,7 @@
 2. As Target Standard concern
 
 ## v1.2
-1. Improved the As Source Standard concern to add the #associate! method
+1. Improved the As Source Standard concern to add the #``associate!`` method
 2. Improved the As Target Standard concern to add the #is_associated! method
 
 ## v1.3
