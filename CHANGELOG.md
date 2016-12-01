@@ -26,7 +26,7 @@
 
 ## v1.3
 1. Improved the As Source Standard concern to add the #associate? method
-2. Improve the As Target Standard concern to add the #is_associated? method
+2. Improved the As Target Standard concern to add the #is_associated? method
 
 ## v1.3.1
 1. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.6
