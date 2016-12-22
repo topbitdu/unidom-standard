@@ -6,7 +6,7 @@ class CreateUnidomStandards < ActiveRecord::Migration
 
       t.string :name,     null: false, default: '',  limit: 200
       t.string :number,   null: false, default: '',  limit: 200
-      t.string :ics_code, null: true,  default: nil, limit: 9
+      t.string :ics_code, null: true,  default: nil, limit: 64
 
       t.text :scope_definition
       t.text :corrigenda
