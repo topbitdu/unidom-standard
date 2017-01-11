@@ -1,6 +1,8 @@
 # Unidom Standard 标准领域模型引擎
 
+[![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/gems/unidom-standard/frames)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](http://opensource.org/licenses/MIT)
+
 [![Gem Version](https://badge.fury.io/rb/unidom-standard.svg)](https://badge.fury.io/rb/unidom-standard)
 [![Dependency Status](https://gemnasium.com/badges/github.com/topbitdu/unidom-standard.svg)](https://gemnasium.com/github.com/topbitdu/unidom-standard)
 
@@ -57,16 +59,16 @@ include Unidom::Standard::Concerns::AsTargetStandard
 
 ### As Source Standard concern
 
-The As Source Standard concern do the following tasks for the includer automatically:  
-1. Define the has_many :target_associatings macro as: ``has_many :target_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :source_id``  
-2. Define the has_many :target_standards macro as: ``has_many :target_standards, through: :target_associatings, source: :target``  
-3. Define the #associate! method as: ``associate!(target, due_to: 'REVS', at: Time.now)``  
+The As Source Standard concern do the following tasks for the includer automatically:
+1. Define the has_many :target_associatings macro as: ``has_many :target_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :source_id``
+2. Define the has_many :target_standards macro as: ``has_many :target_standards, through: :target_associatings, source: :target``
+3. Define the #associate! method as: ``associate!(target, due_to: 'REVS', at: Time.now)``
 4. Define the #associate? method as: ``associate?(target, due_to: 'REVS', at: Time.now)``
 
 ### As Target Standard concern
 
-The As Target Standard concern do the following tasks for the includer automatically:  
-1. Define the has_many :source_associatings macro as: ``has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id``  
-2. Define the has_many :source_standards macro as: ``has_many :source_standards, through: :source_associatings, source: :source``  
-3. Define the #is_associated! method as: ``is_associated!(source, due_to: 'REVS', at: Time.now)``  
+The As Target Standard concern do the following tasks for the includer automatically:
+1. Define the has_many :source_associatings macro as: ``has_many :source_associatings, class_name: 'Unidom::Standard::StandardAssociating', foreign_key: :target_id``
+2. Define the has_many :source_standards macro as: ``has_many :source_standards, through: :source_associatings, source: :source``
+3. Define the #is_associated! method as: ``is_associated!(source, due_to: 'REVS', at: Time.now)``
 4. Define the #is_associated? method as: ``is_associated?(source, due_to: 'REVS', at: Time.now)``
