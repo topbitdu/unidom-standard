@@ -21,4 +21,4 @@ class Unidom::Standard::Standard < Unidom::Standard::ApplicationRecord
 
   scope :number_is, ->(number) { where number: number }
 
-end
+end unless Unidom::Common::Neglection.namespace_neglected? 'Unidom::Standard::Standard'
