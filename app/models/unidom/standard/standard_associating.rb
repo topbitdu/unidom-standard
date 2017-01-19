@@ -18,4 +18,4 @@ class Unidom::Standard::StandardAssociating < Unidom::Standard::ApplicationRecor
     create! source_id: to_id(source), target_id: to_id(with), association_code: due_to, opened_at: at
   end
 
-end
+end unless Unidom::Common::Neglection.namespace_neglected? 'Unidom::Standard::StandardAssociating'
