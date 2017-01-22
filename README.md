@@ -72,3 +72,19 @@ The As Target Standard concern do the following tasks for the includer automatic
 2. Define the has_many :source_standards macro as: ``has_many :source_standards, through: :source_associatings, source: :source``
 3. Define the #is_associated! method as: ``is_associated!(source, due_to: 'REVS', at: Time.now)``
 4. Define the #is_associated? method as: ``is_associated?(source, due_to: 'REVS', at: Time.now)``
+
+
+
+## Disable the Model & Migration
+
+If you only need the app components other than models, the migrations should be neglected, and the models should not be loaded.
+```ruby
+# config/initializers/unidom.rb
+Unidom::Common.configure do |options|
+
+  options[:neglected_namespaces] = %w{
+    Unidom::Standard
+  }
+
+end
+```
