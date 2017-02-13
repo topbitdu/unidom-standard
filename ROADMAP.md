@@ -52,3 +52,6 @@
 1. Models RSpec examples manifest
 2. Types RSpec examples manifest
 3. Validators RSpec examples manifest
+
+## v1.4.1
+1. Improve the Standard spec for the validations on the #name attribute, & the #number attribute
