@@ -1,3 +1,6 @@
+##
+# As Source Standard 是源标准的领域逻辑关注点。
+
 module Unidom::Standard::Concerns::AsSourceStandard
 
   extend ActiveSupport::Concern
