@@ -1,3 +1,6 @@
+##
+# As Target Standard 是目标标准的领域逻辑关注点。
+
 module Unidom::Standard::Concerns::AsTargetStandard
 
   extend ActiveSupport::Concern
