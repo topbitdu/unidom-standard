@@ -44,6 +44,12 @@ describe Unidom::Standard::Standard, type: :model do
       { number: 'A'*name_max_length     } => 0,
       { number: 'A'*(name_max_length+1) } => 1
 
+    it_behaves_like 'scope', :number_is, [
+      { attributes_collection: [ model_attributes                                                ], count_diff: 1, args: [ model_attributes[:number]       ] },
+      { attributes_collection: [ model_attributes                                                ], count_diff: 0, args: [ "#{model_attributes[:number]}0" ] },
+      { attributes_collection: [ model_attributes.merge(number: "#{model_attributes[:number]}0") ], count_diff: 0, args: [ model_attributes[:number]       ] },
+      { attributes_collection: [ model_attributes.merge(number: "#{model_attributes[:number]}0") ], count_diff: 1, args: [ "#{model_attributes[:number]}0" ] } ]
+
   end
 
 end
