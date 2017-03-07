@@ -16,17 +16,29 @@ describe Unidom::Standard::StandardAssociating, type: :model do
 
     it_behaves_like 'Unidom::Common::Concerns::ModelExtension', model_attributes
 
-    it_behaves_like 'scope', :source_is, [
-      { attributes_collection: [ model_attributes                                     ], count_diff: 1, args: [ model_attributes[:source_id]                                     ] },
-      { attributes_collection: [ model_attributes                                     ], count_diff: 1, args: [ Unidom::Standard::Standard.new(id: model_attributes[:source_id]) ] },
-      { attributes_collection: [ model_attributes.merge(source_id: SecureRandom.uuid) ], count_diff: 0, args: [ model_attributes[:source_id]                                     ] },
-      { attributes_collection: [ model_attributes.merge(source_id: SecureRandom.uuid) ], count_diff: 0, args: [ Unidom::Standard::Standard.new(id: model_attributes[:source_id]) ] } ]
+    source_standard_attributes = {
+      name:         'Source Name',
+      number:       'GB/T 3259-2008',
+      ics_code:     '11-23-68',
+      published_on: Date.current-20.years,
+      applied_on:   Date.current,
+      obsoleted_on: Date.current+1.year
+    }
 
-    it_behaves_like 'scope', :target_is, [
-      { attributes_collection: [ model_attributes                                     ], count_diff: 1, args: [ model_attributes[:target_id]                                     ] },
-      { attributes_collection: [ model_attributes                                     ], count_diff: 1, args: [ Unidom::Standard::Standard.new(id: model_attributes[:target_id]) ] },
-      { attributes_collection: [ model_attributes.merge(target_id: SecureRandom.uuid) ], count_diff: 0, args: [ model_attributes[:target_id]                                     ] },
-      { attributes_collection: [ model_attributes.merge(target_id: SecureRandom.uuid) ], count_diff: 0, args: [ Unidom::Standard::Standard.new(id: model_attributes[:target_id]) ] } ]
+    target_standard_attributes = {
+      name:         'Target Name',
+      number:       'GB/T 3259-2018',
+      ics_code:     '11-23-68',
+      published_on: Date.current+1.year,
+      applied_on:   Date.current,
+      obsoleted_on: Date.current+20.years
+    }
+
+    it_behaves_like 'belongs_to', model_attributes, :source, Unidom::Standard::Standard, source_standard_attributes
+    it_behaves_like 'belongs_to', model_attributes, :target, Unidom::Standard::Standard, target_standard_attributes
+
+    it_behaves_like 'monomorphic scope', model_attributes, :source_is, :source
+    it_behaves_like 'monomorphic scope', model_attributes, :target_is, :target
 
   end
 
