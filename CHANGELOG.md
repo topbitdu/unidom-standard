@@ -59,3 +59,7 @@
 ## v1.4.2
 1. Improve the Standard spec for the number_is scope
 2. Improve the Standard Associating spec for the source_is scope, the target_is scope
+
+## v1.4.3
+1. Improve the Standard Associating model for the source_is scope, & the target_is scope
+2. Improve the Standard Associating spec for the ``belongs_to :source, class_name: 'Unidom::Standard::Standard', foreign_key: :source_id`` macro, & the ``belongs_to :target, class_name: 'Unidom::Standard::Standard', foreign_key: :target_id`` macro
