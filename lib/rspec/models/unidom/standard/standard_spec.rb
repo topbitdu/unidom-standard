@@ -17,7 +17,6 @@ describe Unidom::Standard::Standard, type: :model do
       obsoleted_on: Date.current+20.years
     }
 
-    name_max_length   = described_class.columns_hash['name'].limit
     number_max_length = described_class.columns_hash['number'].limit
 
     it_behaves_like 'Unidom::Common::Concerns::ModelExtension', model_attributes
@@ -32,9 +31,9 @@ describe Unidom::Standard::Standard, type: :model do
       { number: 'A'   } => 1,
       { number: 'AA'  } => 0,
       { number: 'AAA' } => 0,
-      { number: 'A'*(name_max_length-1) } => 0,
-      { number: 'A'*name_max_length     } => 0,
-      { number: 'A'*(name_max_length+1) } => 1
+      { number: 'A'*(number_max_length-1) } => 0,
+      { number: 'A'*number_max_length     } => 0,
+      { number: 'A'*(number_max_length+1) } => 1
 
     it_behaves_like 'scope', :number_is, [
       { attributes_collection: [ model_attributes                                                ], count_diff: 1, args: [ model_attributes[:number]       ] },
