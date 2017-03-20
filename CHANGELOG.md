@@ -66,3 +66,6 @@
 
 ## v1.4.4
 1. Improve the Standard spec for the validations on the #``name`` attribute
+
+## v1.4.5
+1. Improve the Standard spec for the validations on the #``number`` attribute
