@@ -69,3 +69,8 @@
 
 ## v1.4.5
 1. Improve the Standard spec for the validations on the #``number`` attribute
+
+## v1.4.6
+1. As Source Standard shared examples
+2. RSpec shared examples manifest
+3. Improve the Standard spec for the As Source Standard concern
