@@ -65,7 +65,7 @@
 2. Improved the Standard Associating spec for the ``belongs_to :source, class_name: 'Unidom::Standard::Standard', foreign_key: :source_id`` macro, & the ``belongs_to :target, class_name: 'Unidom::Standard::Standard', foreign_key: :target_id`` macro
 
 ## v1.4.4
-1. Improve the Standard spec for the validations on the #``name`` attribute
+1. Improved the Standard spec for the validations on the #``name`` attribute
 
 ## v1.4.5
 1. Improve the Standard spec for the validations on the #``number`` attribute
