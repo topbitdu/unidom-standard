@@ -73,4 +73,4 @@
 ## v1.4.6
 1. As Source Standard shared examples
 2. RSpec shared examples manifest
-3. Improve the Standard spec for the As Source Standard concern
+3. Improved the Standard spec for the As Source Standard concern
