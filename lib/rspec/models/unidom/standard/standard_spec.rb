@@ -1,4 +1,5 @@
 require 'rspec/models/unidom/standard/concerns/as_source_standard_shared_examples'
+require 'rspec/models/unidom/standard/concerns/as_target_standard_shared_examples'
 
 describe Unidom::Standard::Standard, type: :model do
 
@@ -19,14 +20,14 @@ describe Unidom::Standard::Standard, type: :model do
       obsoleted_on: Date.current+20.years
     }
 
-    number_max_length = described_class.columns_hash['number'].limit
-
     it_behaves_like 'Unidom::Common::Concerns::ModelExtension',     model_attributes
     it_behaves_like 'Unidom::Standard::Concerns::AsSourceStandard', model_attributes
+    it_behaves_like 'Unidom::Standard::Concerns::AsTargetStandard', model_attributes
 
     it_behaves_like 'validates text', model_attributes, :name,
       length: 2..described_class.columns_hash['name'].limit
 
+    number_max_length = described_class.columns_hash['number'].limit
     it_behaves_like 'validates', model_attributes, :number,
       {               } => 0,
       { number: nil   } => 2,
