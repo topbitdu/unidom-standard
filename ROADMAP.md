@@ -57,7 +57,7 @@
 1. Improve the Standard spec for the validations on the #``name`` attribute, & the #``number`` attribute
 
 ## v1.4.2
-1. Improve the Standard spec for the number_is scope
+1. Improve the Standard spec for the ``number_is`` scope
 2. Improve the Standard Associating spec for the source_is scope, the target_is scope
 
 ## v1.4.3
