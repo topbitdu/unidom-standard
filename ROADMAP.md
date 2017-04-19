@@ -79,3 +79,7 @@
 1. As Target Standard shared examples
 2. Improve the Standard spec for the As Target Standard concern
 3. Improve the RSpec shared examples manifest to remove the As Source Standard shared examples
+
+## v1.4.8
+1. Improve the As Source Standard shared examples for the argument validations of the #associate! method, & the #associate? method
+2. Improve the Standard spec for the As Source Standard concern
