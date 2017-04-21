@@ -20,15 +20,15 @@ describe Unidom::Standard::Standard, type: :model do
       obsoleted_on: Date.current+20.years
     }
 
-    it_behaves_like 'Unidom::Common::Concerns::ModelExtension',     model_attributes
-    it_behaves_like 'Unidom::Standard::Concerns::AsSourceStandard', model_attributes
-    it_behaves_like 'Unidom::Standard::Concerns::AsTargetStandard', model_attributes
+    it_behaves_like 'Unidom::Common::Concerns::ModelExtension',     model_attributes.merge(number: 'GB/T 9999-000')
+    it_behaves_like 'Unidom::Standard::Concerns::AsSourceStandard', model_attributes.merge(number: 'GB/T 9999-001')
+    it_behaves_like 'Unidom::Standard::Concerns::AsTargetStandard', model_attributes.merge(number: 'GB/T 9999-002')
 
-    it_behaves_like 'validates text', model_attributes, :name,
+    it_behaves_like 'validates text', model_attributes.merge(number: 'GB/T 9999-003'), :name,
       length: 2..described_class.columns_hash['name'].limit
 
     number_max_length = described_class.columns_hash['number'].limit
-    it_behaves_like 'validates', model_attributes, :number,
+    it_behaves_like 'validates', model_attributes.merge(number: 'GB/T 9999-004'), :number,
       {               } => 0,
       { number: nil   } => 2,
       { number: ''    } => 2,
@@ -40,10 +40,11 @@ describe Unidom::Standard::Standard, type: :model do
       { number: 'A'*(number_max_length+1) } => 1
 
     it_behaves_like 'scope', :number_is, [
-      { attributes_collection: [ model_attributes                                                ], count_diff: 1, args: [ model_attributes[:number]       ] },
-      { attributes_collection: [ model_attributes                                                ], count_diff: 0, args: [ "#{model_attributes[:number]}0" ] },
-      { attributes_collection: [ model_attributes.merge(number: "#{model_attributes[:number]}0") ], count_diff: 0, args: [ model_attributes[:number]       ] },
-      { attributes_collection: [ model_attributes.merge(number: "#{model_attributes[:number]}0") ], count_diff: 1, args: [ "#{model_attributes[:number]}0" ] } ]
+      { attributes_collection: [ model_attributes.merge(number: 'GB/T 9999-005') ], count_diff: 1, args: [ 'GB/T 9999-005' ] },
+      { attributes_collection: [ model_attributes.merge(number: 'GB/T 9999-006') ], count_diff: 0, args: [ 'GB/T 9999-005' ] },
+      { attributes_collection: [ model_attributes.merge(number: 'GB/T 9999-007') ], count_diff: 0, args: [ 'GB/T 9999-008' ] },
+      { attributes_collection: [ model_attributes.merge(number: 'GB/T 9999-008') ], count_diff: 1, args: [ 'GB/T 9999-008' ] }
+    ]
 
   end
 
