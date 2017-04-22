@@ -18,7 +18,7 @@ describe Unidom::Standard::StandardAssociating, type: :model do
 
     source_standard_attributes = {
       name:         'Source Name',
-      number:       'GB/T 3259-2008',
+      number:       'GB/T 8888-000',
       ics_code:     '11-23-68',
       published_on: Date.current-20.years,
       applied_on:   Date.current,
@@ -27,7 +27,7 @@ describe Unidom::Standard::StandardAssociating, type: :model do
 
     target_standard_attributes = {
       name:         'Target Name',
-      number:       'GB/T 3259-2018',
+      number:       'GB/T 8888-001',
       ics_code:     '11-23-68',
       published_on: Date.current+1.year,
       applied_on:   Date.current,
