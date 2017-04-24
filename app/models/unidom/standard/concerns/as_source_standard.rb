@@ -3,7 +3,8 @@
 
 module Unidom::Standard::Concerns::AsSourceStandard
 
-  extend ActiveSupport::Concern
+  extend  ActiveSupport::Concern
+  include Unidom::Common::Concerns::ArgumentValidation
 
   included do |includer|
 
@@ -11,11 +12,23 @@ module Unidom::Standard::Concerns::AsSourceStandard
     has_many :target_standards,    through:    :target_associatings,                    source:      :target
 
     def associate!(target, due_to: 'REVS', at: Time.now)
+
+      assert_present! :target, target
+      assert_present! :due_to, due_to
+      assert_present! :at,     at
+
       target_associatings.target_is(target).association_coded_as(due_to).valid_at(now: at).alive.first_or_create! opened_at: at
+
     end
 
     def associate?(target, due_to: 'REVS', at: Time.now)
+
+      assert_present! :target, target
+      assert_present! :due_to, due_to
+      assert_present! :at,     at
+
       target_associatings.target_is(target).association_coded_as(due_to).valid_at(now: at).alive.exists?
+
     end
 
   end
