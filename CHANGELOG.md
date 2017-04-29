@@ -77,7 +77,7 @@
 
 ## v1.4.7
 1. As Target Standard shared examples
-2. Improve the Standard spec for the As Target Standard concern
+2. Improved the Standard spec for the As Target Standard concern
 3. Improve the RSpec shared examples manifest to remove the As Source Standard shared examples
 
 ## v1.4.8
