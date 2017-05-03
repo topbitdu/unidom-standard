@@ -38,7 +38,7 @@
 1. Improved the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.7.1
 
 ## v1.3.4
-1. Improved the Standard migration to extend the maximum length of the #``ics_code`` field
+1. Improved the Standard migration to extend the maximum length of the #``ics_code`` column
 
 ## v1.3.5
 1. Improved the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.8
