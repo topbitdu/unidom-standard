@@ -58,7 +58,7 @@
 
 ## v1.4.2
 1. Improved the Standard spec for the ``number_is`` scope
-2. Improved the Standard Associating spec for the source_is scope, the target_is scope
+2. Improved the Standard Associating spec for the ``source_is`` scope, the target_is scope
 
 ## v1.4.3
 1. Improved the Standard Associating model for the source_is scope, & the target_is scope
