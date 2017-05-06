@@ -82,4 +82,4 @@
 
 ## v1.4.8
 1. Improved the As Source Standard shared examples for the argument validations of the #associate! method, & the #associate? method
-2. Improve the Standard spec for the As Source Standard concern
+2. Improved the Standard spec for the As Source Standard concern
