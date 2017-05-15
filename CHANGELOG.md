@@ -83,3 +83,7 @@
 ## v1.4.8
 1. Improved the As Source Standard shared examples for the argument validations of the #associate! method, & the #associate? method
 2. Improved the Standard spec for the As Source Standard concern
+
+## v1.4.9
+1. Improve the Ruby Gem Specification to depend on unidom-common v1.10
+2. Improve the Standard migration, & the Standard Associating migration for the #opened_at column, & the #closed_at column
